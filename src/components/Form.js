@@ -5,10 +5,12 @@ class Form extends Component {
     super(props)
 
     this.state = {
+      message: 'Hello',
       username: '',
       comments: '',
       topic:'React'
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleUsernameChange = (event) => {
     this.setState({
@@ -25,15 +27,22 @@ class Form extends Component {
       topic: event.target.value
     })
   }
-  handleSubmit = event => {
+  handleSubmit () {
     alert(`${this.state.username} ${this.state.comments} ${this.state.topic}`)
-    event.preventDefault()
   }
+  // helloBois () {
+  //   if(this.state.message==='Hello'){
+  //     this.setState({message:'Goodbye'})
+  // }else{
+  //     this.setState({message:'Hello'})
+  // }
+  // }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
+        {/* <button onClick={this.helloBois}>Clickkkk</button> */}
           <label>Username</label>
           <input type='text' value={this.state.username} onChange={this.handleUsernameChange}></input>
         </div>
